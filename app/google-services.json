@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "302910613280",
+    "firebase_url": "https://vyom-assessment-default-rtdb.firebaseio.com",
+    "project_id": "vyom-assessment",
+    "storage_bucket": "vyom-assessment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302910613280:android:97b2c03ae3114011e85945",
+        "android_client_info": {
+          "package_name": "com.example.vyom_assessment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302910613280-kqkhkqjafkcdfmrbpviqbld0brlktm4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAI_e4w-BwGItm6cz_hUJ2Wipymcbz4r4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302910613280-kqkhkqjafkcdfmrbpviqbld0brlktm4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
