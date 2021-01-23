@@ -4,16 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/backgrd1"
+    android:orientation="vertical"
     tools:context=".Educational_details">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#000080"
+        android:text="Add Details"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="#32AAA6"
+        android:textStyle="bold">
+
+    </TextView>
+    <TextView
+        android:id="@+id/uname"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#000080"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="#32AAA6"
+        android:textStyle="bold">
+
+    </TextView>
     <Button
-        android:id="@+id/btlogin"
+        android:id="@+id/btlogin4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        android:onClick="add_X_details"
+        android:text="Xth Details"
+        android:textColor="#32AAA6"
+        android:textStyle="bold">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btlogin5"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:background="#FFFFFF"
         android:onClick="addData"
         android:text="Add Detail"
@@ -21,4 +61,33 @@
         android:textStyle="bold">
 
     </Button>
+
+    <Button
+        android:id="@+id/btlogin3"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:onClick="addData"
+        android:text="Add Detail"
+        android:textColor="#32AAA6"
+        android:textStyle="bold">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btlogin"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:onClick="addData"
+        android:text="Add Detail"
+        android:textColor="#32AAA6"
+        android:textStyle="bold">
+
+    </Button>
+
 </LinearLayout>

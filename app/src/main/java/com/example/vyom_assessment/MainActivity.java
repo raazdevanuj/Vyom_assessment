@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText password;
 
     DatabaseReference databaseReference;
-
+    CurrentUser currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
         username=(EditText) findViewById(R.id.user_email);
         password=(EditText) findViewById(R.id.user_password);
+
+        currentUser=(CurrentUser)getApplicationContext();
     }
     private void isUser(){
 
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("users");
         String email=username.getText().toString();
+        System.out.println("11111111"+email);
         String pswd=password.getText().toString();
         String srr[]=email.split("@");
         Query checkUser=databaseReference.child(srr[0]);
@@ -48,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
                     String strpwd=dataSnapshot.child("password").getValue(String.class);
                     String name=dataSnapshot.child("username").getValue(String.class);
 
-                    System.out.println("use: "+strpwd+"  "+name);
+                    System.out.println("use: "+strpwd+"  "+name +"111111"+email);
 
                     if(strpwd.equals(pswd)){
-
+                        currentUser.setEmail(email);
+                        currentUser.setName(name);
 
                         Toast.makeText(getApplicationContext(),"Successfully Login "+name +"",Toast.LENGTH_LONG).show();
 
