@@ -42,6 +42,7 @@ public class Xthdetails extends AppCompatActivity {
         isAvailable();
     }
     private void isAvailable(){
+     //   System.out.println("55555544444555555");
         String key[]=currentUser.getEmail().split("@");
         databaseReference=FirebaseDatabase.getInstance().getReference().child("education_details").child("Xth");
         Query checkUser=databaseReference.child(key[0]);
@@ -52,12 +53,14 @@ public class Xthdetails extends AppCompatActivity {
                     String school_name=dataSnapshot.child("schoolname").getValue(String.class);
                     String board_name=dataSnapshot.child("boardname").getValue(String.class);
                     String percentage=dataSnapshot.child("percentage").getValue(String.class);
-                    int passingyear= dataSnapshot.child("passingyear").getValue(Integer.class);
+                    String passingyear= dataSnapshot.child("passingyear").getValue(String.class);
+                   // int passingyear= dataSnapshot.child("passingyear").getValue(Integer.class);
 
                     s_name.setText(school_name);
                     Board_name.setText(board_name);
                     Percentage.setText(percentage);
-                    PassingYear.setText(passingyear+"");
+                 //   System.out.println("55555555555555");
+                    PassingYear.setText(passingyear);
 
                 }
 
@@ -74,24 +77,48 @@ public class Xthdetails extends AppCompatActivity {
         String school_name=s_name.getText().toString();
         String board_name=Board_name.getText().toString();
         String percentage=Percentage.getText().toString();
-        int passingyear= Integer.parseInt(PassingYear.getText().toString());
-
-        String msg="";
-        if(school_name==""||school_name.equals("")){
-                msg="Enter School Name";
-        }
-        if(msg!=""){
-            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-            dlgAlert.setMessage(msg);
-            dlgAlert.setTitle("Error Alert");
-            dlgAlert.setPositiveButton("OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int which) {
-
-                        }
-                    });
+        String pass=PassingYear.getText().toString();
+        if (school_name.isEmpty()) {
+            s_name.setError("Enter School/College name");
             return;
+        } else {
+            s_name.setError(null);
         }
+        if (board_name.isEmpty()) {
+            Board_name.setError("Enter Board/University name");
+            return;
+        } else {
+            Board_name.setError(null);
+        }
+        if (percentage.isEmpty()) {
+            Percentage.setError("Enter Percentage");
+            return;
+        } else {
+            Percentage.setError(null);
+        }
+        if (pass.isEmpty()) {
+           PassingYear.setError("Enter Passing Year");
+            return;
+        } else {
+            PassingYear.setError(null);
+        }
+
+//        String msg="";
+//        if(school_name==""||school_name.equals("")){
+//                msg="Enter School Name";
+//        }
+//        if(msg!=""){
+//            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+//            dlgAlert.setMessage(msg);
+//            dlgAlert.setTitle("Error Alert");
+//            dlgAlert.setPositiveButton("OK",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog,int which) {
+//
+//                        }
+//                    });
+//            return;
+//        }
         String key[]=currentUser.getEmail().split("@");
 
 
@@ -101,7 +128,7 @@ public class Xthdetails extends AppCompatActivity {
         databaseReference.child("education_details").child("Xth").child(key[0]).child("schoolname").setValue(school_name);
         databaseReference.child("education_details").child("Xth").child(key[0]).child("boardname").setValue(board_name);
         databaseReference.child("education_details").child("Xth").child(key[0]).child("percentage").setValue(percentage);
-        databaseReference.child("education_details").child("Xth").child(key[0]).child("passingyear").setValue(passingyear);
+        databaseReference.child("education_details").child("Xth").child(key[0]).child("passingyear").setValue(pass);
 
         Toast.makeText(getApplicationContext(),"Successfully updated",Toast.LENGTH_LONG).show();
         Intent intent=new Intent(Xthdetails.this,Educational_details.class);
