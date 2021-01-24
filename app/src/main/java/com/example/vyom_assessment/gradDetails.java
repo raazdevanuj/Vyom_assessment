@@ -49,8 +49,8 @@ public class gradDetails extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    String school_name=dataSnapshot.child("schoolname").getValue(String.class);
-                    String board_name=dataSnapshot.child("boardname").getValue(String.class);
+                    String school_name=dataSnapshot.child("collegename").getValue(String.class);
+                    String board_name=dataSnapshot.child("universityname").getValue(String.class);
                     String percentage=dataSnapshot.child("percentage").getValue(String.class);
                     String passingyear= dataSnapshot.child("passingyear").getValue(String.class);
                     String specify=dataSnapshot.child("specif").getValue(String.class);
@@ -85,7 +85,7 @@ public class gradDetails extends AppCompatActivity {
         }
         else
         {
-          course.setError(null);
+            course.setError(null);
         }
         if(spc.isEmpty()){
             specif.setError("Enter specialization");
@@ -143,8 +143,8 @@ public class gradDetails extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference();
         databaseReference.child("education_details").child("grad").child(key[0]).child("course").setValue(cour);
         databaseReference.child("education_details").child("grad").child(key[0]).child("specif").setValue(spc);
-        databaseReference.child("education_details").child("grad").child(key[0]).child("schoolname").setValue(school_name);
-        databaseReference.child("education_details").child("grad").child(key[0]).child("boardname").setValue(board_name);
+        databaseReference.child("education_details").child("grad").child(key[0]).child("collegename").setValue(school_name);
+        databaseReference.child("education_details").child("grad").child(key[0]).child("universityname").setValue(board_name);
         databaseReference.child("education_details").child("grad").child(key[0]).child("percentage").setValue(percentage);
         databaseReference.child("education_details").child("grad").child(key[0]).child("passingyear").setValue(pass);
 
